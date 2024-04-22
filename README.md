@@ -31,4 +31,5 @@ Esse projeto consiste em um app para gerenciar finanças pessoais.
 - Docker
 - PostgreSql
 
-![https://cdn.discordapp.com/attachments/989139685865562162/1204871904134037574/Capa.png?ex=65d64f67&is=65c3da67&hm=b84ce57db1973581c019487213181fcdebd4749226117864d16c28248073cabb&](https://cdn.discordapp.com/attachments/989139685865562162/1204871904134037574/Capa.png?ex=65d64f67&is=65c3da67&hm=b84ce57db1973581c019487213181fcdebd4749226117864d16c28248073cabb&)
+![Capa (1)](https://github.com/jovemcleb/fincheck/assets/60612529/1b78a2af-eb92-418e-9442-8be36d192784)
+
