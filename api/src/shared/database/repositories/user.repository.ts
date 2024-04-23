@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { CreateUserDto } from '../../../modules/users/dto/create-user.dto';
 import { PrismaService } from '../prisma.service';
 import { CategoryType } from '../../../types/categories';
+import { SignupDto } from 'src/modules/auth/dto/signup.dto';
 
 interface ICreateUserArgs {
-  data: CreateUserDto;
+  data: SignupDto;
   categories: {
     name: string;
     icon: string;
