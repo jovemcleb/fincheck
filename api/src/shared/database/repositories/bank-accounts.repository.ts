@@ -25,7 +25,7 @@ export class BankAccountRepository {
   }
 
   findFirst(userId: string, bankAccountId: string) {
-    return this.prismaService.bankAccount.findMany({
+    return this.prismaService.bankAccount.findFirst({
       where: { userId, id: bankAccountId },
     });
   }
