@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma.service';
 import { CreateTransactionDto } from 'src/modules/transactions/dto/create-transaction.dto';
 import { UpdateTransactionDto } from 'src/modules/transactions/dto/update-transaction.dto';
+import { TransactionType } from 'src/modules/transactions/entities/transaction';
 
 @Injectable()
 export class TransactionRepository {
@@ -15,8 +16,26 @@ export class TransactionRepository {
     });
   }
 
-  findManyByUserId(userId: string) {
-    return this.prismaService.transaction.findMany({ where: { userId } });
+  findManyByUserId(
+    userId: string,
+    filters: {
+      month: number;
+      year: number;
+      bankAccountId?: string;
+      transactionType?: TransactionType;
+    },
+  ) {
+    return this.prismaService.transaction.findMany({
+      where: {
+        userId,
+        bankAccountId: filters.bankAccountId,
+        type: filters.transactionType,
+        date: {
+          gte: new Date(Date.UTC(filters.year, filters.month)),
+          lt: new Date(Date.UTC(filters.year, filters.month + 1)),
+        },
+      },
+    });
   }
 
   findFirst(userId: string, transactionId: string) {
