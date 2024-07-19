@@ -1,0 +1,9 @@
+FROM postgres:latest
+
+# Definir variáveis de ambiente
+ENV POSTGRES_USER=root
+ENV POSTGRES_PASSWORD=root
+ENV POSTGRES_DB=fincheck
+
+# Expor a porta do PostgreSQL
+EXPOSE 5432
