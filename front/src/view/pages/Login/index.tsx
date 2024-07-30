@@ -26,11 +26,19 @@ export function Login() {
       </header>
 
       <form className="mt-16 flex flex-col gap-4" onSubmit={handleSubmit}>
-        <Input type="email" placeholder="Email" {...register('email')} />
-        {errors.email && <span>{errors.email.message}</span>}
+        <Input
+          error={errors.email?.message}
+          type="email"
+          placeholder="Email"
+          {...register('email')}
+        />
 
-        <Input type="password" placeholder="Senha" {...register('password')} />
-        {errors.password && <span>{errors.password.message}</span>}
+        <Input
+          error={errors.password?.message}
+          type="password"
+          placeholder="Senha"
+          {...register('password')}
+        />
 
         <Button type="submit" className="mt-2">
           Entrar
