@@ -19,7 +19,7 @@ export function AuthLayout() {
           className="object-cover h-full w-full max-w-[41rem] max-h-[60rem] select-none rounded-[32px]"
         />
 
-        <div className="max-w-[41rem] bottom-8 bg-white p-10 absolute rounded-b-[32px]">
+        <div className="max-w-[41rem] bottom-8 mx-8 bg-white p-10 absolute rounded-b-[32px]">
           <Logo className="text-teal-900 h-8" />
 
           <p className="text-gray-700 font-medium text-xl mt-6">
