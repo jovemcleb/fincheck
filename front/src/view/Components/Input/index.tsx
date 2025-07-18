@@ -19,7 +19,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           {...props}
           id={inputId}
           className={cn(
-            'bg-white w-full rounded-lg border border-gray-500 px-3 h-12 text-gray-800 pt-3.5 peer placeholder-shown:pt-0 focus:border-gray-800 transition-all outline-none',
+            'peer h-12 w-full rounded-lg border border-gray-500 bg-white px-3 pt-3.5 text-gray-800 outline-none transition-all placeholder-shown:pt-0 focus:border-gray-800',
             className,
             error && '!border-red-900',
           )}
@@ -27,13 +27,13 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         />
         <label
           htmlFor={inputId}
-          className="absolute text-xs top-1 left-3 pointer-events-none text-gray-700 peer-placeholder-shown:text-base peer-placeholder-shown:top-3 transition-all"
+          className="pointer-events-none absolute left-3 top-1 text-xs text-gray-700 transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-base"
         >
           {placeholder}
         </label>
 
         {error && (
-          <div className="flex gap-1 items-center mt-2 text-red-900">
+          <div className="mt-2 flex items-center gap-1 text-red-900">
             <CrossCircledIcon />
             <span className="text-xs">{error}</span>
           </div>

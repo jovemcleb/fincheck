@@ -10,7 +10,10 @@
         "trailingComma": "all",
         "arrowParens": "always",
         "semi": true,
-        "endOfLine": "auto"
+        "endOfLine": "auto",
+        "plugins": [
+          "prettier-plugin-tailwindcss"
+        ]
       }
     ],
     "@typescript-eslint/no-non-null-assertion": "off"

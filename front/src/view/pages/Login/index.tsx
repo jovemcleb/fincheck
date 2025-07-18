@@ -9,16 +9,16 @@ export function Login() {
   return (
     <>
       <header className="flex flex-col items-center gap-4 text-center">
-        <h1 className="text-2xl font-bold text-gray-900 tracking-[-1px]">
+        <h1 className="text-2xl font-bold tracking-[-1px] text-gray-900">
           Entre em sua conta
         </h1>
         <p className="space-x-2">
-          <span className="text-gray-700 tracking-[-0.5px]">
+          <span className="tracking-[-0.5px] text-gray-700">
             Novo por aqui?
           </span>
           <Link
             to="/register"
-            className="text-teal-900 tracking-[-0.5px] font-medium"
+            className="font-medium tracking-[-0.5px] text-teal-900"
           >
             Crie uma conta
           </Link>
