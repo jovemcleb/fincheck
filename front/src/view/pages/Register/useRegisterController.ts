@@ -5,6 +5,7 @@ import toast from 'react-hot-toast';
 import { z } from 'zod';
 import { AuthService } from '../../../app/services/authService';
 import { SignupParams } from '../../../app/services/authService/signup';
+import { useAuthStore } from '../../../app/stores/authStore';
 
 const registerSchema = z.object({
   email: z
@@ -30,10 +31,11 @@ export function useRegisterController() {
   const { mutateAsync, isPending } = useMutation({
     mutationFn: async (data: SignupParams) => AuthService.signup(data),
   });
-
+  const { signin } = useAuthStore();
   const handleSubmit = hookFormSubmit(async (data) => {
     try {
-      await mutateAsync(data);
+      const { token } = await mutateAsync(data);
+      signin(token);
     } catch (error) {
       toast.error('Erro ao cadastrar usuário');
     }

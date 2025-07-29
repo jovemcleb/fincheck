@@ -5,6 +5,7 @@ import toast from 'react-hot-toast';
 import { z } from 'zod';
 import { AuthService } from '../../../app/services/authService';
 import { SigninParams } from '../../../app/services/authService/signin';
+import { useAuthStore } from '../../../app/stores/authStore';
 
 const loginSchema = z.object({
   email: z
@@ -30,9 +31,12 @@ export function useLoginController() {
     mutationFn: async (data: SigninParams) => AuthService.signin(data),
   });
 
+  const { signin } = useAuthStore();
+
   const handleSubmit = hookFormSubmit(async (data) => {
     try {
-      await mutateAsync(data);
+      const { token } = await mutateAsync(data);
+      signin(token);
     } catch (error) {
       toast.error('Credenciais inválidas');
     }
