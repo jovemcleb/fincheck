@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
@@ -160,6 +161,9 @@ export default {
           800: '#E8590C',
           900: '#D9480F',
         },
+      },
+      height: {
+        '49': '12.5rem',
       },
     },
   },
