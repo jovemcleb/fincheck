@@ -1,6 +1,8 @@
 import { ChevronDownIcon } from '@radix-ui/react-icons';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { MONTHS } from '../../../../../app/config/constants';
+import { formatCurrency } from '../../../../../app/utils/formatCurrency';
+import { CategoryIcon } from '../../../../components/icons/categories/CategoryIcon';
 import { FilterIcon } from '../../../../components/icons/FilterIcon';
 import { TransactionsIcon } from '../../../../components/icons/TransactionsIcon';
 import { SliderOption } from './SliderOption';
@@ -10,7 +12,7 @@ export interface TransactionsProps {}
 
 export function Transactions() {
   return (
-    <div className="h-full w-full rounded-2xl bg-gray-100 p-10">
+    <div className="flex h-full w-full flex-col rounded-2xl bg-gray-100 px-4 py-10 sm:px-8 md:p-10">
       <header className="">
         <div className="flex items-center justify-between">
           <button className="flex items-center gap-2">
@@ -44,7 +46,37 @@ export function Transactions() {
           </Swiper>
         </div>
       </header>
-      <div className="mt-4">content</div>
+      <div className="mt-4 flex-1 space-y-2 overflow-y-auto">
+        <div className="flex items-center justify-between gap-4 rounded-2xl bg-white p-4">
+          <div className="flex flex-1 items-center gap-3">
+            <CategoryIcon type="expense" />
+            <div>
+              <strong className="block font-bold tracking-[0.5px]">
+                Almoço
+              </strong>
+              <span className="text-sm text-gray-600">04/05/2023</span>
+            </div>
+          </div>
+          <span className="font-medium tracking-[0.5px] text-red-800">
+            {formatCurrency(1000)}
+          </span>
+        </div>
+
+        <div className="flex items-center justify-between gap-4 rounded-2xl bg-white p-4">
+          <div className="flex flex-1 items-center gap-3">
+            <CategoryIcon type="income" />
+            <div>
+              <strong className="block font-bold tracking-[0.5px]">
+                Almoço
+              </strong>
+              <span className="text-sm text-gray-600">04/05/2023</span>
+            </div>
+          </div>
+          <span className="font-medium tracking-[0.5px] text-green-800">
+            {formatCurrency(1000)}
+          </span>
+        </div>
+      </div>
     </div>
   );
 }
