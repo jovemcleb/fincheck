@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { ReactNode, useEffect } from 'react';
 import toast from 'react-hot-toast';
-import { LaunchScreen } from '../../view/Components/LaunchScreen';
+import { LaunchScreen } from '../../view/components/LaunchScreen';
 import { UsersService } from '../services/usersService';
 import { useAuthStore } from '../stores/authStore';
 
