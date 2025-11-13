@@ -1,3 +1,5 @@
+import { useDashBoardStore } from '../../../../../app/stores/dashboardStore';
+import { cn } from '../../../../../app/utils/cn';
 import { formatCurrency } from '../../../../../app/utils/formatCurrency';
 import { BankAccountTypeIcon } from '../../../../components/icons/BankAccountTypeIcon';
 
@@ -9,6 +11,8 @@ interface AccountCardProps {
 }
 
 export function AccountCard({ color, name, balance, type }: AccountCardProps) {
+  const { areValuesVisible } = useDashBoardStore();
+
   return (
     <div
       className="flex h-49 flex-col justify-between rounded-2xl border-b-4 border-teal-950 bg-white p-4"
@@ -22,7 +26,12 @@ export function AccountCard({ color, name, balance, type }: AccountCardProps) {
       </div>
 
       <div>
-        <span className="block font-medium tracking-[-0.5px]">
+        <span
+          className={cn(
+            'block font-medium tracking-[-0.5px]',
+            areValuesVisible && 'blur-sm',
+          )}
+        >
           {formatCurrency(balance)}
         </span>
         <small className="text-sm text-gray-600">Saldo atual</small>
