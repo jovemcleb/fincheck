@@ -5,6 +5,7 @@ import { formatCurrency } from '../../../../../app/utils/formatCurrency';
 import emptyStateImage from '../../../../../assets/empty-state.svg';
 import { CategoryIcon } from '../../../../components/icons/categories/CategoryIcon';
 import { FilterIcon } from '../../../../components/icons/FilterIcon';
+import { FiltersModal } from './FiltersModal';
 import { SkeletonTransactions } from './SkeletonTransactions';
 import { SkeletonTransactionsItems } from './SkeletonTransactionsItems';
 import { SliderOption } from './SliderOption';
@@ -15,8 +16,15 @@ import { useTransactionsController } from './useTransactionsController';
 export interface TransactionsProps {}
 
 export function Transactions() {
-  const { areValuesVisible, isInitialLoading, transactions, isLoading } =
-    useTransactionsController();
+  const {
+    areValuesVisible,
+    isInitialLoading,
+    transactions,
+    isLoading,
+    handleCloseFiltersModal,
+    handleOpenFiltersModal,
+    isFiltersModalOpen,
+  } = useTransactionsController();
 
   if (isInitialLoading) {
     return <SkeletonTransactions />;
@@ -29,11 +37,16 @@ export function Transactions() {
 
   return (
     <div className="flex h-full w-full flex-col rounded-2xl bg-gray-100 px-4 py-10 sm:px-8 md:p-10">
+      <FiltersModal
+        open={isFiltersModalOpen}
+        onClose={handleCloseFiltersModal}
+      />
+
       <header className="">
         <div className="flex items-center justify-between">
           <TransactionTypeDropdown />
 
-          <button>
+          <button onClick={handleOpenFiltersModal}>
             <FilterIcon />
           </button>
         </div>

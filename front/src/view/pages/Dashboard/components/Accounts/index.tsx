@@ -110,7 +110,7 @@ export function Accounts() {
               <SwiperSlide>
                 <AccountCard
                   color="#ffe600"
-                  name="XP"
+                  name="Dinheiro"
                   balance={752}
                   type="CASH"
                 />
