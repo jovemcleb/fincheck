@@ -4,7 +4,13 @@ import { useDashBoardStore } from '../../../../../app/stores/dashboardStore';
 
 export function useAccountController() {
   const windowWidth = useWindowWidth();
-  const { areValuesVisible, toggleValuesVisibility } = useDashBoardStore();
+  const {
+    areValuesVisible,
+    toggleValuesVisibility,
+    isNewAccountModalOpen,
+    openNewAccountModal,
+    closeNewAccountModal,
+  } = useDashBoardStore();
 
   const [sliderState, setSliderState] = useState({
     isBeginning: true,
@@ -18,6 +24,9 @@ export function useAccountController() {
     areValuesVisible,
     toggleValuesVisibility,
     isLoading: false,
-    accounts: [''],
+    accounts: [],
+    isNewAccountModalOpen,
+    openNewAccountModal,
+    closeNewAccountModal,
   };
 }
