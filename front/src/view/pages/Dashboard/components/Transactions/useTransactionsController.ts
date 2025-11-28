@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDashBoardStore } from '../../../../../app/stores/dashboardStore';
 
 export function useTransactionsController() {
-  const [isFiltersModalOpen, setIsFilterModalOpen] = useState(true);
+  const [isFiltersModalOpen, setIsFilterModalOpen] = useState(false);
   const { areValuesVisible } = useDashBoardStore();
 
   function handleOpenFiltersModal() {
